@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "xchens's blog"
+title: "xchens"
 subtitle: 'xchens.cn'
 description: 'share tech'
 keywords:
@@ -106,11 +106,7 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: anatole
 
-avatar: /img/avatar.jpeg
-# avatar link
-avatar_link: /
-# favicon
-favicon: /img/avatar.jpeg
+github: cshsonice
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -127,5 +123,13 @@ feed:
     - rss2.xml
   limit: 20
   order_by: -date
+
+# https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml
+  rel: false
+  tags: true
+  categories: true
+  # template: ./sitemap_template.xml
 
 
