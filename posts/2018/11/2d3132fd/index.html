@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>求解递归式的基本方法 · xchens</title><meta name="description" content="递归式一个递归式就是一个等式或不等式，它通过更小的输入上的函数值来描述一个函数。例如:
+一、代入法
+猜测解的形式。  
+
+用数学归纳法求出解中的常数，并证明解是正确的。  
+
+
+例子一般解法求解: T(n) = T(n-1) + n  
+假设其解为O(n^2)，即 T(n) = O(n^2)
+代入法"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/table.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">xchens</a></h3><div class="description"><p>share tech</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="https://github.com/cshsonice"><span>followed me at</span><i class="fa fa-github"></i></a></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/about">关于</a></li><li><a href="/archives">归档</a></li><li><a href="/links">友链</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>求解递归式的基本方法</a></h3></div><div class="post-content"><h1 id="递归式"><a href="#递归式" class="headerlink" title="递归式"></a>递归式</h1><p>一个递归式就是一个等式或不等式，<br>它通过更小的输入上的函数值来描述一个函数。<br>例如:<br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dts_exp.png" alt="递归式样例"></p>
+<h2 id="一、代入法"><a href="#一、代入法" class="headerlink" title="一、代入法"></a>一、代入法</h2><ol>
+<li><p>猜测解的形式。  </p>
+</li>
+<li><p>用数学归纳法求出解中的常数，并证明解是正确的。  </p>
+</li>
+</ol>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><h4 id="一般解法"><a href="#一般解法" class="headerlink" title="一般解法"></a>一般解法</h4><p>求解: T(n) = T(n-1) + n  </p>
+<pre><code>假设其解为O(n^2)，即 T(n) = O(n^2)
+代入法要求: 证明选择常数 c&gt;0 ，可得 T(n) ≤ c*n^2
+    假设对于 m&lt;n ，总有 T(m) ≤ c*m^2
+    即 T(n-1) ≤ c*(n-1)^2
+    那么
+    T(n) ≤ c*(n-1)^2 + n
+        ≤ c*n^2 - c*2n + c + n
+        ≤ c*n^2 - (c*2n - c -n)
+        ≤ c*n^2 - ((n-1)c + (c-1)n)
+    由于 n&gt;1 &amp;&amp; c&gt;0 则 ((n-1)c + (c-1)n) &gt; 0
+    故 T(n) ≤ c*n^2
+    得 T(n) = O(n^2)</code></pre>
+<h4 id="变形的换元解法"><a href="#变形的换元解法" class="headerlink" title="变形的换元解法"></a>变形的换元解法</h4><p>求解： <img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dts_exp2.png" alt="递归式换元题"></p>
+<pre><code>这里可以假设n开方后是整数。
+令 m=lgn得到
+    T(2^m) = 2T(2^(m/2)) + m
+使 S(m) = T(2^m), 则
+    S(m) = 2S(m/2) + m
+这里的递归式S(m)就可以使用与上面相同的解法。
+    猜测 S(m) = O(mlgm)， 即存在常数c&gt;0,可得 S(m) ≤ cmlgm
+    假设c&gt;0时对于任意的 a&lt;m 都有S(a) ≤ calga
+    则 S(m/2) ≤ c(m/2)lg(m/2)
+    S(m) ≤ 2c(m/2)lg(m/2) + m
+         ≤ cmlgm - m(c-1)
+         ≤ cmlgm
+    所以 S(m) = O(mlgm)
+T(n)=T(2^m)=S(m)=O(mlgm)=O(lgn*lglgn)</code></pre>
+<h2 id="二、递归树法"><a href="#二、递归树法" class="headerlink" title="二、递归树法"></a>二、递归树法</h2><p>虽然可以用代入法简洁的证明一个解是递归式的正确解，但想出一个好的猜测可能并不容易。画出递归树是设计好的猜测的一种简单而直接的方法。</p>
+<p>在递归树中，每个结点代表一个单一子问题的代价，子问题对应某次递归函数调用。我们将树中每层中的代价求和，得到每层代价。再将所有层中的代价求和，得到递归调用总代价。</p>
+<h3 id="例"><a href="#例" class="headerlink" title="例"></a>例</h3><p>我们以<img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dts_exp3.png" alt="递归式3">为例。<br>如下图显示了构造递归树的必要步骤，为方便起见，假定n是4的幂。</p>
+<p><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dgs_abc.png" alt="abc"><br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dgs_d.png" alt="d">  </p>
+<p>递归树法存在一定误差，需要注意</p>
+<h2 id="三、主方法"><a href="#三、主方法" class="headerlink" title="三、主方法"></a>三、主方法</h2><p>主方法为如下形式的递归式提供了特别的解法<br>    ** T(n) = aT(n/b) + f(n) **<br>其中a,b是常数， a≥1, b&gt;1,f(n)是渐近正函数</p>
+<p>主方法依赖这些<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%B8%BB%E5%AE%9A%E7%90%86">定理</a></p>
+<h3 id="主方法概括"><a href="#主方法概括" class="headerlink" title="主方法概括"></a>主方法概括</h3><p>比较 <img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/nlogba.png" alt="nlogba"> 和 f(n)，如果f(n)的复杂度较大，T(n)=O(f(n)),如果f(n)的复杂度较小，则T(n)=O(<img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/nlogba.png" alt="nlogba">)。<br>而若二者相等，则T(n)=O(<img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/nlogba.png" alt="nlogba"> * lgn)</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><blockquote>
+<p>T(n) = 7T(n/2) + O(n^2)</p>
+</blockquote>
+<p>这里有a=7,b=2,f(n)=n^2。<br>因此 <img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/nlogba.png" alt="nlogba"> &gt; f(n)<br>则 T(n) = O(n ^ (lg 7))</p>
+<h2 id="the-end"><a href="#the-end" class="headerlink" title="the end"></a>the end</h2><p>欢迎友善交流。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-11-07</span><i class="fa fa-tag"></i><a class="tag" href="/tags/算法/" title="算法">算法 </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://xchens.cn//posts/2018/11/2d3132fd/,xchens,求解递归式的基本方法,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/posts/2018/11/8e260842/" title="olldbg 手册">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/posts/2018/11/85ec9c9c/" title="给pycharm设置虚拟环境virtualenv">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
