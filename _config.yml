@@ -120,7 +120,7 @@ feed:
     - rss2
   path:
     - atom.xml
-    - rss2.xml
+    - rss.xml
   limit: 20
   order_by: -date
 

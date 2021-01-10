@@ -4,11 +4,13 @@ date: 2021-01-09 14:00:17
 sitemap: false
 ---
 
-#### whoami
+#### me
 
-programmer
-
-#### status
+| whoami     | status |
+|:----------:|:------:|
+| programmer | coding |
 
-coding
 
+#### rss
+
+[rss2](/rss.xml) & [atom](/atom.xml)
