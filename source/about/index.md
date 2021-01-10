@@ -6,9 +6,9 @@ sitemap: false
 
 #### me
 
-| whoami     | status |
-|:----------:|:------:|
-| programmer | coding |
+| whoami     | status   | github    | preference |
+|:----------:|:--------:|:---------:|:----------:|
+| programmer | coding   | cshsonice | security   |
 
 
 #### rss
