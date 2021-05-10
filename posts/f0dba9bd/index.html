@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>那些年我们看不懂的缩写 - network,security,and so on. · xchens</title><meta name="description" content="网络
+AP (Access Point)  无线接入点
+
+STA (Station)  站点，任何一个接入无线AP的设备都可以称为一个站点
+
+SSID (Service Set Identifier)  每个无线AP都应该有一个标示用于用户识别，SSID就是这个用于用户识别的的名字，也就是我们经常说"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/table.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><a href="/"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><span>xchens</span></h3><div class="description"><p>share tech</p></div></a></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="https://github.com/cshsonice"><span>follow me on  </span><i class="fa fa-github"></i></a></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">home</a></li><li><a href="/about">about</a></li><li><a href="/archives">archive</a></li><li><a href="/links">links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><a href="/home" title="home"><img src="/images/avatar.jpg"></a></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>那些年我们看不懂的缩写 - network,security,and so on.</a></h3></div><div class="post-content"><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><ul>
+<li><p><code>AP</code> (Access Point)<br>  无线接入点</p>
+</li>
+<li><p><code>STA</code> (Station)<br>  站点，任何一个接入无线AP的设备都可以称为一个站点</p>
+</li>
+<li><p><code>SSID</code> (Service Set Identifier)<br>  每个无线AP都应该有一个标示用于用户识别，SSID就是这个用于用户识别的的名字，也就是我们经常说到的wifi名</p>
+</li>
+<li><p><code>LB</code> (Load Balance) 负载均衡<br>  用于将流量均衡合理地分配到不同机器。 </p>
+</li>
+<li><p><code>CSR</code> (Cerificate Signing Request) 证书请求文件<br>  我们想要证明我们的网站是可信的，数据传输是加密的，我们就需要由第三方CA机构颁发的证书来证明，比如Symantec，GeoTrust等等。<br>  而想要申请这样的证书，我们的第一步就是需要生成我们自己的CSR文件。<br>  CSR需要由申请人提供域名、公司名称、部门、省份、城市、国家借助相关工具生成，工具同时会生成证书请求文件和私钥文件，其中的证书请求文件就是CSR文件，这两个文件是相互匹配的，我们将CSR文件提交给CA申请证书，经过CA身份对申请者身份进行审核后，颁发证书公钥，申请人收到证书文件后，将证书公钥文件配合私钥文件转化成服务器对应的格式的文件部署在HTTP服务器上面，这样我们的网站就可信了。  </p>
+</li>
+<li><p><code>TFO</code> (TCP Fast Open)<br>  它通过握手开始时的SYN包中的TFO cookie（一个TCP选项）来验证一个之前连接过的客户端。如果验证成功，它可以在三次握手最终的ACK包收到之前就开始发送数据，这样便跳过了一个绕路的行为，更在传输开始时就降低了延迟。这个加密的Cookie被存储在客户端，在一开始的连接时被设定好。然后每当客户端连接时，这个Cookie被重复返回。<br>  TCP握手开始时，客户端发送的SYN包带有数据和cookie，服务端会校验此cookie，若cookie合法则视作建立连接成功并将数据返回给上层应用，否则丢弃数据并返回SYN+ACK从而进入TCP第二次握手。客户端根据服务端响应来决定继续TCP握手并重发数据或进入下一步。<br>  <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/TCP%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80">更多详情</a> </p>
+</li>
+<li><p>SLD (second-level domain) 二级域名<br>  <a target="_blank" rel="noopener" href="http://www.example.com中,example.com就是二级域名/">www.example.com中，example.com就是二级域名</a>      </p>
+</li>
+</ul>
+<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><ul>
+<li><p><code>ROP</code>（Return-Oriented Programming） 面向返回编程<br>  一种计算机安全漏洞利用技术，该技术允许攻击者在安全防御的情况下执行代码，如不可执行的内存和代码签名。攻击者控制堆栈调用以劫持程序控制流并执行针对性的机器语言指令序列（称为Gadgets）。 每一段gadget通常结束于return指令，并位于共享库代码中的子程序。系列调用这些代码，攻击者可以在拥有更简单攻击防范的程序内执行任意操作。<br>  ROP是一种高级的堆栈溢出攻击。这类攻击往往利用操作堆栈调用时的程序漏洞，通常是缓冲区溢出。在缓冲区溢出中，在将数据存入内存前未能正确检查适当范围的函数会收到多于正常承受范围的数据，如果数据将写入栈，多余的数据会溢出为函数变量分配的空间并覆盖替换返回地址（return address）。在原本用以重定向控制流并返回给调用者的地址被覆盖替换后，控制流将改写到新分配的地址。<br>  <a target="_blank" rel="noopener" href="https://bbs.pediy.com/thread-223798.htm">更多详情</a></p>
+</li>
+<li><p><code>RCE</code> (Remote Code Execution)<br>  远程代码执行</p>
+</li>
+<li><p><code>EDR</code> (Endpoint Detection and Response) 端点检测与响应<br>  指端上安全检测。有时特指办公网内对员工机器的风险监控。<br>  <a target="_blank" rel="noopener" href="https://www.esecurityplanet.com/products/top-endpoint-detection-response-solutions.html">更多详情</a></p>
+</li>
+<li><p><code>CVSS</code> (Common Vulnerability Scoring System) 通用漏洞评分系统<br> CVSS分值遵循被广泛采纳的行业标准，根据漏洞的多种属性通过公式计算得出。主要用于量化漏洞的严重程度。<br> 在CVSS v3.0评分体系中，不同分值代表的漏洞严重程度如下：   </p>
+<ul>
+<li>0.0：无漏洞   </li>
+<li>0.1~3.9：低危   <ul>
+<li>可导致本地拒绝服务的漏洞。  </li>
+<li>其他危害较低的漏洞。  </li>
+</ul>
+</li>
+<li>4.0~6.9：中危  <ul>
+<li>需要进行交互才能影响用户的漏洞。  </li>
+<li>可导致普通越权操作的漏洞。  </li>
+<li>通过本地修改配置或获取信息之后，可进一步利用的漏洞。  </li>
+</ul>
+</li>
+<li>7.0~8.9：高危  <ul>
+<li>可间接获取服务器和应用系统的普通权限的漏洞。  </li>
+<li>可导致任意文件读取、下载、写入、或删除的漏洞。  </li>
+<li>可导致敏感信息泄漏的漏洞。  </li>
+<li>可直接导致业务中断、或远程拒绝服务的漏洞。  </li>
+</ul>
+</li>
+<li>9.0~10.0：严重  <ul>
+<li>可直接获取服务器系统权限的漏洞。  </li>
+<li>可直接获取重要的敏感信息，导致数据泄漏的漏洞。  </li>
+<li>可直接导致敏感信息越权访问的漏洞。  </li>
+<li>可造成大范围影响的其他漏洞。  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>NTA</code> (Network Traffic Analysis) 网络流量分析<br>  一般指对网络流量进行分析的安全产品。</p>
+</li>
+<li><p><code>SIEM</code> (Security Infomation and Events Manager) 安全信息和事件管理<br>  简单地说，SIEM是一个由多个监视和分析组件组成的安全系统，旨在帮助组织检测和减轻威胁。<br>  如上所述，SIEM将许多其他安全规程和工具结合在一个综合的框架下:  </p>
+<ul>
+<li><p>日志管理(LMS)——用于传统日志收集和存储的工具。  </p>
+</li>
+<li><p>安全信息管理(SIM)——集中于从多个数据源收集和管理与安全相关的数据的工具或系统。例如，这些数据源可以是防火墙、DNS服务器、路由器和防病毒应用程序。  </p>
+</li>
+<li><p>安全事件管理(SEM)——基于主动监视和分析的系统，包括数据可视化、事件相关性和警报。   </p>
+<p>SIEM是今天的术语管理系统,所有上述合并到一个层,知道如何从分布式自动收集和处理信息的来源,将它存储在一个集中位置,不同事件之间的关联,并根据这些信息生成警报和报告。  </p>
+</li>
+</ul>
+</li>
+<li><p><code>SOC</code> (Security Operation Center) 安全运营中心<br>  一般一个较完善的SOC应该具有以下模块：   </p>
+<ul>
+<li>安全设备集中管理<ul>
+<li>统一日志管理（集中监控）</li>
+<li>统一配置管理（集中管理）</li>
+<li>各安全产品和系统的统一协调和处理（协同处理）</li>
+<li>设备自动发现</li>
+</ul>
+</li>
+<li>安全服务集中管理<ul>
+<li>安全培训管理</li>
+<li>风险分析自动化</li>
+</ul>
+</li>
+<li>业务流程的安全管理<ul>
+<li>初步的资产管理（资产、人员）</li>
+<li>安全管理系统与网关系统的联动（协调处理）</li>
+<li>与其他信息系统的高度融合</li>
+</ul>
+</li>
+<li>组织的安全管理<ul>
+<li>组织构成</li>
+<li>组织责任</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>IOC</code> (Indicators of Compromise) 威胁指示<br>  IOC在取证时常常被描述为用于指示网络安全性已被破坏的计算机证据。<br>  在网络中,IOC可能是一个MD5哈希值,一个C2结构域或硬编码的IP地址,一个注册表项,文件名等。这些IOC都在不断变化来保护网络的安全。<br>  同样,根据2012年MITRE的定义,这显然是观测量,而不是IOC本身。Ross和Breem甚至指出这种与IOC之间的联系(见下文),以及IOC是如何“不断变化的”。他提道: “在网络领域中,IOA的力量会展示一个攻击者是如何侵入你的计算机,访问的文件,破解密码,并最终盗取数据的。”<br>  <a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/83830">更多详情</a>  </p>
+</li>
+<li><p><code>RASP</code>（Runtime Application Self-Protection）运行时应用自我保护<br>  RSAP将自身注入到应用程序中，与应用程序融为一体，实时监测、阻断攻击，使程序自身拥有自保护的能力。并且应用程序无需在编码时进行任何的修改，只需进行简单的配置即可。<br>  <a target="_blank" rel="noopener" href="http://blog.nsfocus.net/rasp-tech/">更多详情</a>  </p>
+</li>
+<li><p><code>TIP</code> (Threat Intelligence Platform) 威胁情报平台<br>  是一个可以支持整个安全团队的平台，支持执行日常事件响应、网络防御和威胁分析。成熟的 TIP 用于日常运营，支持对攻击的阻止和处理，支持战略决策和流程改进，它可以帮助实现企业威胁情报计划对威胁情报进行全生命周期的管理。威胁情报的生命周期包括：威胁情报需求分析、收集、分析、使用。  </p>
+</li>
+</ul>
+<h2 id="工作中的快捷表达"><a href="#工作中的快捷表达" class="headerlink" title="工作中的快捷表达"></a>工作中的快捷表达</h2><ul>
+<li><p><code>WIP</code> (Work In Progress) 半成品<br>  表示任务在进行中，未完成   </p>
+</li>
+<li><p><code>FYI</code> (For Your Information) 信息同步<br>  表示将信息同步给你，注意看一下  </p>
+</li>
+</ul>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><ul>
+<li><p><code>kerberos</code> 基于C/S架构的网络认证授权协议<br>  协议介绍：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Kerberos">维基百科</a><br>  相关缩写：  </p>
+<ul>
+<li>AS（Authentication Server）= 认证服务器  </li>
+<li>KDC（Key Distribution Center）= 密钥分发中心  </li>
+<li>TGT（Ticket Granting Ticket）= 票据授权票据，票据的票据  </li>
+<li>TGS（Ticket Granting Server）= 票据授权服务器  </li>
+<li>SS（Service Server）= 特定服务提供端  </li>
+</ul>
+</li>
+<li><p><code>OLAP</code> (Online Analytical Processing) 联机分析处理<br>  OLAP是数据仓库系统的主要应用，支持复杂的分析操作，侧重决策支持，并且提供直观易懂的查询结果。如 hive，clickhouse 等<br>  也叫DSS决策支持系统，就是我们说的数据仓库。在这样的系统中，语句的执行量不是考核标准，因为一条语句的执行时间可能会非常长，读取的数据也非常多。所以，在这样的系统中，考核的标准往往是磁盘子系统的吞吐量（带宽），如能达到多少MB/s的流量。  </p>
+</li>
+<li><p><code>OLTP</code> (Online Transaction Processing) 联机事务处理<br>  OLTP是传统的关系型数据库的主要应用，主要是基本的、日常的事务处理，例如银行交易。典型的OLTP系统有电子商务系统、银行、证券等，如美国eBay的业务数据库，就是很典型的OLTP数据库。<br>  表示事务性非常高的系统，一般都是高可用的在线系统，以小的事务以及小的查询为主，评估其系统的时候，一般看其每秒执行的Transaction以及Execute SQL的数量。在这样的系统中，单个数据库每秒处理的Transaction往往超过几百个，或者是几千个，Select 语句的执行量每秒几千甚至几万个。  </p>
+</li>
+<li><p><code>ETL</code> (Extract Transform Load) 数据处理<br>  用于描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）到目的端的过程。<br>  即从数据源抽取数据出来，进行清洗加工转换，然后加载到定义好的数据仓库模型中去。<br>  目的是将企业中分散、零乱、标准不统一的数据整合到一起，为企业的决策提供分析依据。</p>
+</li>
+<li><p><code>SLI</code> (Service Level Indicator)</p>
+<ul>
+<li>A carefully defined quantitative measure of some aspect of the level of service that is provided.</li>
+</ul>
+</li>
+<li><p><code>SLO</code> (Service Level Objective)</p>
+<ul>
+<li>A target value or range of values for a service level that is measured by an SLI, e.g.  e.g. SLI &gt;= 99.95%</li>
+</ul>
+</li>
+<li><p><code>SLA</code> (Service Level Agreement)</p>
+<ul>
+<li>An explicit or implicit contract with your users that includes consequences of meeting (or missing) the SLOs they contain.</li>
+</ul>
+</li>
+</ul>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">update at 2021-05-10</span><i class="fa fa-tag"></i><a class="tag" href="/tags/网络/" title="网络">网络 </a><a class="tag" href="/tags/安全/" title="安全">安全 </a><a class="tag" href="/tags/杂谈/" title="杂谈">杂谈 </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://xchens.cn//posts/f0dba9bd/,xchens,那些年我们看不懂的缩写 - network,security,and so on.,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/posts/fd58792a/" title="linux如何从源码安装纯净版python3">previous post</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/posts/eeff0c5/" title="对golang里&quot;堆&quot;结构的一次实践">next post</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script async src="/js/customize.js"></script></body></html>
