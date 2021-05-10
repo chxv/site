@@ -18,7 +18,7 @@ timezone: 'Asia/Shanghai'
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
 url: https://xchens.cn
 root: /
-permalink: /posts/:year/:month/:abbrlink/
+permalink: /posts/:abbrlink/
 permalink_defaults:
 pretty_urls:
   trailing_index: false # Set to false to remove trailing 'index.html' from permalinks

@@ -15,7 +15,7 @@ mixin make_post(item, is_detail)
 		.post-footer: .meta
 			.info
 				i.fa.fa-sun-o
-				span.date= date(item.date, 'YYYY-MM-DD')
+				span.date= __('UpdateAt') + date(item.date, ' YYYY-MM-DD')
 				if theme.duoshuo || theme.disqus
 					i.fa.fa-comment-o
 					a(href= url_for(item.path + "#comments"))= __('Comments')
