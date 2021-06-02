@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xchens.cn/posts/eeff0c5/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xchens.cn/posts/fd58792a/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xchens.cn/img/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xchens.cn/links/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xchens.cn/posts/b678101a/</loc>
     
     <lastmod>2021-06-02</lastmod>
@@ -114,35 +142,7 @@
   </url>
   
   <url>
-    <loc>https://xchens.cn/posts/fd58792a/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xchens.cn/posts/eeff0c5/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xchens.cn/404</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xchens.cn/img/</loc>
-    
-    <lastmod>2021-06-02</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xchens.cn/links/</loc>
     
     <lastmod>2021-06-02</lastmod>
     
@@ -319,13 +319,6 @@
   </url>
   
   <url>
-    <loc>https://xchens.cn/tags/python3/</loc>
-    <lastmod>2021-06-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xchens.cn/tags/golang/</loc>
     <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
@@ -334,6 +327,13 @@
   
   <url>
     <loc>https://xchens.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2021-06-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xchens.cn/tags/python3/</loc>
     <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
