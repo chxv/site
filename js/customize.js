@@ -39,7 +39,4 @@ function showComment() {
 
 // ----
 homepage();
-setTimeout(function () {
-  showComment();
-}, 1000);
-
+showComment()
