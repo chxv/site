@@ -39,4 +39,4 @@ function showComment() {
 
 // ----
 homepage();
-showComment()
+showComment();
