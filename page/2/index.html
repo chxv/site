@@ -1,4 +1,38 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>xchens</title><meta name="description" content="share tech"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/table.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><a href="/"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><span>xchens</span></h3><div class="description"><p>share tech</p></div></a></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="https://github.com/cshsonice"><span>follow me on  </span><i class="fa fa-github"></i></a></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a class="current" href="/">home</a></li><li><a href="/about">about</a></li><li><a href="/archives">archive</a></li><li><a href="/links">links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li></div><div class="avatar"><a href="/home" title="home"><img src="/images/avatar.jpg"></a></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/posts/d6ad7f4e/">PE文件分析</a></h3></div><div class="post-content"><p>PE文件结构dos头：共64字节，前两个字节固定是4D5A，最后4个字节指向PE头。
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>xchens</title><meta name="description" content="share tech"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/table.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><a href="/"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><span>xchens</span></h3><div class="description"><p>share tech</p></div></a></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="https://github.com/cshsonice"><span>follow me on  </span><i class="fa fa-github"></i></a></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a class="current" href="/">home</a></li><li><a href="/about">about</a></li><li><a href="/archives">archive</a></li><li><a href="/links">links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li></div><div class="avatar"><a href="/home" title="home"><img src="/images/avatar.jpg"></a></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/posts/8dd7a186/">gdb-手册</a></h3></div><div class="post-content"><p>gdb命令
+
+
+命令
+解释
+示例
+
+
+
+file &lt;filename&gt;
+加载被调试的文件
+file a.out
+
+
+r
+run 运行程序
+
+
+
+c
+continue 继续执行直到遇到断点
+
+
+
+b &lt;行号&gt;
+在指定行下断点
+
+
+
+b &lt;函数名&gt;
+给指定函数下断点
+
+
+
+b *&...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">update at 2018-11-25</span><i class="fa fa-tag"></i><a class="tag" href="/tags/gdb/" title="gdb">gdb </a></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/posts/d6ad7f4e/">PE文件分析</a></h3></div><div class="post-content"><p>PE文件结构dos头：共64字节，前两个字节固定是4D5A，最后4个字节指向PE头。
 dos存根： 无用。
 PE头：4字节PE标识符，20字节的PE文件头，224字节的PE可选头。
 节表：40字节，在PE文件头里已经定义好了节表数目(WORD NumberOfSections;)。
