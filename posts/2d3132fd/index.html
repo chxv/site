@@ -7,7 +7,7 @@
 
 例子一般解法求解: T(n) = T(n-1) + n  
 假设其解为O(n^2)，即 T(n) = O(n^2)
-代入法"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/table.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><a href="/"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><span>xchens</span></h3><div class="description"><p>share tech</p></div></a></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="https://github.com/cshsonice"><span>follow me on  </span><i class="fa fa-github"></i></a></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">home</a></li><li><a href="/about">about</a></li><li><a href="/archives">archive</a></li><li><a href="/links">links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><a href="/home" title="home"><img src="/images/avatar.jpg"></a></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>求解递归式的基本方法</a></h3></div><div class="post-content"><h1 id="递归式"><a href="#递归式" class="headerlink" title="递归式"></a>递归式</h1><p>一个递归式就是一个等式或不等式，<br>它通过更小的输入上的函数值来描述一个函数。<br>例如:<br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dts_exp.png" alt="递归式样例"></p>
+代入法"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/table.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><a href="/"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><span>xchens</span></h3><div class="description"><p>share tech</p></div></a></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="https://github.com/cshsonice"><span>follow me on  </span><i class="fa fa-github"></i></a></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">home</a></li><li><a href="/about">about</a></li><li><a href="/archives">archive</a></li><li><a href="/links">links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><a href="/home" title="home"><img src="/images/avatar.jpg"></a></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>求解递归式的基本方法</a></h3></div><div class="post-content"><h1 id="递归式"><a href="#递归式" class="headerlink" title="递归式"></a>递归式</h1><p>一个递归式就是一个等式或不等式，<br>它通过更小的输入上的函数值来描述一个函数。<br>例如:<br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dts_exp.png" alt="递归式样例"></p>
 <h2 id="一、代入法"><a href="#一、代入法" class="headerlink" title="一、代入法"></a>一、代入法</h2><ol>
 <li><p>猜测解的形式。  </p>
 </li>
@@ -26,7 +26,8 @@
         ≤ c*n^2 - ((n-1)c + (c-1)n)
     由于 n&gt;1 &amp;&amp; c&gt;0 则 ((n-1)c + (c-1)n) &gt; 0
     故 T(n) ≤ c*n^2
-    得 T(n) = O(n^2)</code></pre>
+    得 T(n) = O(n^2)
+</code></pre>
 <h4 id="变形的换元解法"><a href="#变形的换元解法" class="headerlink" title="变形的换元解法"></a>变形的换元解法</h4><p>求解： <img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dts_exp2.png" alt="递归式换元题"></p>
 <pre><code>这里可以假设n开方后是整数。
 令 m=lgn得到
@@ -41,7 +42,8 @@
          ≤ cmlgm - m(c-1)
          ≤ cmlgm
     所以 S(m) = O(mlgm)
-T(n)=T(2^m)=S(m)=O(mlgm)=O(lgn*lglgn)</code></pre>
+T(n)=T(2^m)=S(m)=O(mlgm)=O(lgn*lglgn)
+</code></pre>
 <h2 id="二、递归树法"><a href="#二、递归树法" class="headerlink" title="二、递归树法"></a>二、递归树法</h2><p>虽然可以用代入法简洁的证明一个解是递归式的正确解，但想出一个好的猜测可能并不容易。画出递归树是设计好的猜测的一种简单而直接的方法。</p>
 <p>在递归树中，每个结点代表一个单一子问题的代价，子问题对应某次递归函数调用。我们将树中每层中的代价求和，得到每层代价。再将所有层中的代价求和，得到递归调用总代价。</p>
 <h3 id="例"><a href="#例" class="headerlink" title="例"></a>例</h3><p>我们以<img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dts_exp3.png" alt="递归式3">为例。<br>如下图显示了构造递归树的必要步骤，为方便起见，假定n是4的幂。</p>
