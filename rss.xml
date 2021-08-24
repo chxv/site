@@ -9,8 +9,29 @@
     <atom:link href="https://xchens.cn/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>share tech</description>
-    <pubDate>Tue, 24 Aug 2021 04:12:16 GMT</pubDate>
+    <pubDate>Tue, 24 Aug 2021 04:13:39 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>docker-compose 示例</title>
+      <link>https://xchens.cn/posts/67b55fb6/</link>
+      <guid>https://xchens.cn/posts/67b55fb6/</guid>
+      <pubDate>Tue, 24 Aug 2021 03:07:00 GMT</pubDate>
+      
+      <description>docker-compose 基础使用方法示例，包含常用参数配置等信息</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><blockquote><p>包含一些常用的参数配置</p></blockquote><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3.9&quot;</span>  <span class="comment"># optional since v1.27.0</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">web:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">.</span> <span class="comment"># 从当前路径开始构建docker镜像，要求有 Dockerfile</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;80:5000&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.:/code</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">logvolume01:/var/log</span></span><br><span class="line">    <span class="attr">links:</span> <span class="comment"># 定义与其他服务的网络连接</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">redis</span> <span class="comment"># 使用本地最新的 redis 镜像</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">redis-hahah</span> <span class="comment"># 自定义容器启动后的名称</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">&quot;unless-stopped&quot;</span> <span class="comment"># https://www.cloudbees.com/blog/ensuring-containers-are-always-running-with-dockers-restart-policy</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;$&#123;EXT_PORT&#125;:6379&quot;</span> <span class="comment"># 使用环境变量设置端口映射</span></span><br><span class="line">    <span class="attr">environment:</span> <span class="comment"># 传递给内部容器的环境变量</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROOT_USER=$&#123;USERNAME&#125;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROOT_PASSWORD=$&#123;PASSWORD&#125;</span></span><br><span class="line">    <span class="attr">env_file:</span> <span class="comment"># 文件里包含了传递给内部容器的环境变量</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">../../conf.env</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">$&#123;PWD&#125;/data:/data</span> <span class="comment"># 挂载卷</span></span><br></pre></td></tr></table></figure><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul><li>.env</li></ul><blockquote><p>类似于bash语法，支持注释</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 环境变量配置， docker-compose 解析时生效，无法直接作用于容器内</span></span><br><span class="line">USERNAME=admin    <span class="comment"># 用户名</span></span><br><span class="line">PASSWORD=password <span class="comment"># 密码</span></span><br><span class="line">WORK_DIR=/tmp     <span class="comment"># 目录</span></span><br><span class="line">EXT_PORT=6666     <span class="comment"># 端口号</span></span><br></pre></td></tr></table></figure><ul><li>创建启动</li></ul><blockquote><p>docker-compose up -d</p></blockquote><ul><li>停止删除</li></ul><blockquote><p>docker-compose down</p></blockquote>]]></content:encoded>
+      
+      
+      
+      <category domain="https://xchens.cn/tags/tool/">tool</category>
+      
+      
+      <comments>https://xchens.cn/posts/67b55fb6/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>知识自由小技巧</title>
@@ -448,27 +469,6 @@
       
       
       <comments>https://xchens.cn/posts/3caa90b0/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>分治算法初步</title>
-      <link>https://xchens.cn/posts/b678101a/</link>
-      <guid>https://xchens.cn/posts/b678101a/</guid>
-      <pubDate>Tue, 02 Oct 2018 14:06:00 GMT</pubDate>
-      
-      <description>algorithm 分治法</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="分治算法初步"><a href="#分治算法初步" class="headerlink" title="分治算法初步"></a>分治算法初步</h2><h3 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h3><p>最大子数组的差问题。<br><br>给定数组[13,-3,-25,20,-3,-16,-23, …],<br>求数组中连续的首尾差最大的子数组。<br></p><p>对于A[low, high),划分为A[low,mid), A[mid, high)<br></p><p>此时最大子数组只可能有三种情况：</p><ul><li><p>完全位于A[low, mid)</p></li><li><p>完全位于A[mid, high)</p></li><li><p>横跨中点</p></li></ul><p>我们可以递归求解</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calculate_mid</span>(<span class="params">A, low, high</span>):</span></span><br><span class="line">    m = (low+high)//<span class="number">2</span></span><br><span class="line">    minnum = A[m]</span><br><span class="line">    maxnum = A[m]</span><br><span class="line">    mlow = m</span><br><span class="line">    mhigh = m</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(low, m):</span><br><span class="line">        <span class="keyword">if</span> A[i] &lt; minnum:</span><br><span class="line">            minnum = A[i]</span><br><span class="line">            mlow = i</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m,high):</span><br><span class="line">        <span class="keyword">if</span> A[i] &gt; maxnum:</span><br><span class="line">            maxnum = A[i]</span><br><span class="line">            mhigh = i</span><br><span class="line">    <span class="keyword">return</span> maxnum-minnum, mlow, mhigh</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">A, low, high</span>):</span></span><br><span class="line">    <span class="keyword">if</span> low == high:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>, low, high</span><br><span class="line">    <span class="keyword">if</span> low + <span class="number">1</span> == high:</span><br><span class="line">        <span class="keyword">if</span> high &gt;= <span class="built_in">len</span>(A):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>, low, high</span><br><span class="line">        <span class="keyword">return</span> A[high]-A[low], low, high</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        left, llow, lhigh = f(A, low, (low+high)//<span class="number">2</span>)</span><br><span class="line">        right, rlow, rhigh = f(A, (low+high)//<span class="number">2</span>, high)</span><br><span class="line">        mid, mlow, mhigh = calculate_mid(A, low, high)</span><br><span class="line">        max_cha = <span class="built_in">max</span>(left, right, mid)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> max_cha == left:</span><br><span class="line">            <span class="keyword">return</span> max_cha, llow, lhigh</span><br><span class="line">        <span class="keyword">elif</span> max_cha == right:</span><br><span class="line">            <span class="keyword">return</span> max_cha, rlow, rhigh</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> max_cha, mlow, mhigh</span><br></pre></td></tr></table></figure><p>** 以上代码并非计算最大子数组的和 **</p><ul><li><p>算法导论提供另一种思路：</p><blockquote><ol><li>将每天相对于前一天的变化值记录下，作为新数组 – <em>O(n)</em><br></li><li>计算最大子数组（即数组各元素和最大的子数组）<br></li></ol><p><strong>计算子数组的和</strong> 与 <strong>计算首尾差</strong> 对算法实现并无太大影响。<br>算法本质都是使用分治法。</p></blockquote></li><li><p>分治核心就是将大问题划分为多个小问题</p></li><li><p>如计算最大子数组就是将问题划分为三个板块</p><blockquote><p>完全左半部分， 完全右半部分， 横跨中点。<br>其中前两者都是递归。后者可遍历直接得出答案。</p></blockquote></li></ul>]]></content:encoded>
-      
-      
-      
-      <category domain="https://xchens.cn/tags/%E7%AE%97%E6%B3%95/">算法</category>
-      
-      
-      <comments>https://xchens.cn/posts/b678101a/#disqus_thread</comments>
       
     </item>
     
