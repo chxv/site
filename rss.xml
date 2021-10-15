@@ -9,8 +9,35 @@
     <atom:link href="https://xchens.cn/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>share tech</description>
-    <pubDate>Fri, 15 Oct 2021 04:02:24 GMT</pubDate>
+    <pubDate>Fri, 15 Oct 2021 07:45:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>「 程序员修炼之道 」</title>
+      <link>https://xchens.cn/posts/208f0b83/</link>
+      <guid>https://xchens.cn/posts/208f0b83/</guid>
+      <pubDate>Fri, 15 Oct 2021 04:20:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-专注&quot;&gt;&lt;a href=&quot;#1-专注&quot; class=&quot;headerlink&quot; title=&quot;1. 专注&quot;&gt;&lt;/a&gt;1. 专注&lt;/h3&gt;&lt;p&gt;对于所做的事情保持足够的专注&lt;/p&gt;
+&lt;h3 id=&quot;2-思考&quot;&gt;&lt;a href=&quot;#2-思考&quot; class=&quot;head</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="1-专注"><a href="#1-专注" class="headerlink" title="1. 专注"></a>1. 专注</h3><p>对于所做的事情保持足够的专注</p><h3 id="2-思考"><a href="#2-思考" class="headerlink" title="2. 思考"></a>2. 思考</h3><p>想明白自己在做什么，想清楚自己真正的目的</p><h3 id="3-预设更多可能，而非事后找借口"><a href="#3-预设更多可能，而非事后找借口" class="headerlink" title="3. 预设更多可能，而非事后找借口"></a>3. 预设更多可能，而非事后找借口</h3><p>项目之初与进行中总是需要更多的思考项目走向，考虑更多的可能性<br>（如果你遇到银行柜员或修理工在出现问题时给了蹩脚的借口，你会如何看待对方及其背后的公司）</p><h3 id="4-防微杜渐-避免破窗效应"><a href="#4-防微杜渐-避免破窗效应" class="headerlink" title="4. 防微杜渐 - 避免破窗效应"></a>4. 防微杜渐 - 避免破窗效应</h3><p>任何项目之初都要保持敬畏，避免任何不负责任的设计与实现，努力维护其「优雅度」  </p><p>当项目足够优雅后，任何人都不会舍得破坏这样的艺术；相反，对于一个混乱的项目，<br>没人愿意花太多时间去改善一个垃圾，即使新增功能也是强行为之，这只会加剧项目的「熵」。</p><h3 id="5-催生变化，推进变化"><a href="#5-催生变化，推进变化" class="headerlink" title="5. 催生变化，推进变化"></a>5. 催生变化，推进变化</h3><blockquote><p>设计出你可以合理要求的东西，好好开发它。一旦完成，就拿给大家看，让他们大吃一惊。然后说：“要是我们增加……可能就会更好。”假装那并不重要。坐回椅子上，等着他们开始要你增加你本来就想要的功能。人们发现，参与正在发生的成功要更容易。让他们瞥见未来，你就能让他们聚集在你周围。</p></blockquote><p>创造一件事物总是十分困难的，而因势利导，循序渐进则会顺利得多。 </p><p><strong>「note：让人们相信正在发生的“成功”，让他们主动聚集过来」</strong></p><h3 id="6-心怀远景"><a href="#6-心怀远景" class="headerlink" title="6. 心怀远景"></a>6. 心怀远景</h3><p>期待并朝着长期价值前进</p><p>其一，远大目标是前进的标杆，只有心里清楚未来，才能靠近未来；<br>其二，温水煮青蛙，不去看远处的风险，便只能做一只煮熟的青蛙。  </p><h3 id="7-质量问题是需求，而非核心"><a href="#7-质量问题是需求，而非核心" class="headerlink" title="7. 质量问题是需求，而非核心"></a>7. 质量问题是需求，而非核心</h3><blockquote><p>技术陷阱：技术出身的项目管理者往往会把技术当作第一要素，而导致需求与市场脱节</p></blockquote><p>项目进展中，质量并不总是作为第一需求，需要根据实际需求动态调整。<br>用户有时宁愿用一些功能完善的残次品，也不愿等待一个打磨中的半成品。</p><p>不要因为过度修饰和过于求精而毁损完好的程序。继续前进，让你的代码凭着自己的质量站立一会儿。<br>它也许不完美，但不用担心：它不可能完美。</p><p><strong>以用户态度去权衡</strong> </p><h3 id="8-知识资产管理"><a href="#8-知识资产管理" class="headerlink" title="8. 知识资产管理"></a>8. 知识资产管理</h3><blockquote><p>作为技术从业者，我们立足的根基不是位置，而是知识</p></blockquote><p>知识投资要点：定期投资，多元化，经常重新评估与平衡，尽量选择最有价值的知识</p><hr><p>TODO： more</p>]]></content:encoded>
+      
+      
+      
+      <category domain="https://xchens.cn/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      <category domain="https://xchens.cn/tags/%E9%98%85%E8%AF%BB/">阅读</category>
+      
+      
+      <comments>https://xchens.cn/posts/208f0b83/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>docker-compose 示例</title>
@@ -446,29 +473,6 @@
       
       
       <comments>https://xchens.cn/posts/c85f0a37/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>基于github的git pages搭建博客</title>
-      <link>https://xchens.cn/posts/3caa90b0/</link>
-      <guid>https://xchens.cn/posts/3caa90b0/</guid>
-      <pubDate>Fri, 05 Oct 2018 15:30:00 GMT</pubDate>
-      
-      <description>github gitpages blog</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="使用gitpages搭建博客-极速版"><a href="#使用gitpages搭建博客-极速版" class="headerlink" title="使用gitpages搭建博客(极速版)"></a>使用gitpages搭建博客(极速版)</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>网上有很多美观大方的博客，基于git pages的也有很多好看而精美的博客样式。</p><p>但这里统统不讲，只讲如何极速拥有一个自己的[美观?]博客</p><h3 id="建立博客站"><a href="#建立博客站" class="headerlink" title="建立博客站"></a>建立博客站</h3><ol><li><p>准备一个github账号，假设用户名为xxx。</p></li><li><p>新建一个git仓库，命名为 xxx.github.io 。</p></li><li><p>进入设置界面，点击选择主题。</p></li></ol><p><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/gitpages_choose_theme12345.png" alt="演示图"></p><ol start="4"><li>以为还有四五六七八？教程已经结束。可以直接开始写文章上传啦。</li></ol><h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>网站建设到这算是没问题了，如果只有简单的需求这也可以满足。</p><p>接下来的内容可以帮助更好的建设自己的网站。</p><ol><li><p>选择的主题的简单自定义信息（更详细的信息请移步<a href="https://help.github.com/categories/github-pages-basics/">git pages文档</a>）        </p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">title_of_blog</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">subtitle_of_blog</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">xxx</span></span><br><span class="line"><span class="attr">keywords:</span> [<span class="string">blog</span>, <span class="string">技术</span>, <span class="string">c++</span>, <span class="string">python</span>] </span><br><span class="line"><span class="attr">author:</span> <span class="string">the_author_name</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://example.com</span>  <span class="comment"># 若设置CNAME则设置此项</span></span><br></pre></td></tr></table></figure></li><li><p>修改域名别名（CNAME）<br>&emsp;&emsp;<br>如果觉得gitpage的默认域名不好，可以买一个自己的域名。现在一般域名都很便宜。我买的一个就首年7元，以后续费35/年。而且这后缀还是 .cn。<br>&emsp;&emsp;<br>买完域名就设置域名解析，添加一项CNAME的，指向现在的 xxx.github.io。接着再在github的这个网站项目的根目录新建一个文件CNAME，内容就是买的域名，比如 example.com 就行。<br>&emsp;&emsp;<br>当时我设置的时候遇到了http与https瞎跳转的问题，甚至明明链接指向 <a href="https://example.com/">https://example.com</a> 结果最后出现的还是http的网址。这个时候可以去设置一下配置文件（_config.yml）就是上文的最后一行。<br>设为自己的域名即可。<br>最后一项在设置域名别名(CNAME)的时候很重要，<br>当时我就是因为不知道，踩了好久的坑。<br>设置此项后（指明https）再也没遇到过http与https胡乱的跳转问题了。<br>也就可以放心设置只提供https（即 Enforce HTTPS）    </p></li></ol><ol start="3"><li>网站自定义<br>&emsp;&emsp;<br>这个有两种方法，要么根据<a href="https://jekyllrb.com/docs/">文档</a>设置。要么用笨办法。<br>&emsp;&emsp;<br>根据文档做就不说了，本文的核心还是极速可用。<br>那么就说说我自己也在用的笨办法吧。<br>那就是Javascript。在这个框架下是支持markdown内嵌入js代码的。<br>所以一般网页能做的它都能做。唯一需要注意的是有的部分的html是晚于markdown的内容的，也就是说可能在js运行的时候，它想要修改的内容都还没出现，所以需要适当的js延时或重试。同样的，通过js引入css也是小菜一碟啦。<br>&emsp;&emsp;<br>不过它的优缺点也很明显。<br>好处是代码即时可用，也不需要构建工程不需要其他维护。<br>坏处就是随着自定义的程度的提升，写js的工作量也急剧提升，甚至不如自己直接写html，也就丧失了原本框架的便捷了。<br>&emsp;&emsp;<br>&emsp;&emsp;<br>(tips: F12查看我的js定制。已经实现了自动生成目录，自动设置并更新励志格言功能)</li></ol><p><a href="https://xchens.cn/">个人小站</a></p>]]></content:encoded>
-      
-      
-      
-      <category domain="https://xchens.cn/tags/%E5%8D%9A%E5%AE%A2/">博客</category>
-      
-      <category domain="https://xchens.cn/tags/%E6%95%99%E7%A8%8B/">教程</category>
-      
-      
-      <comments>https://xchens.cn/posts/3caa90b0/#disqus_thread</comments>
       
     </item>
     

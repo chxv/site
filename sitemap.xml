@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xchens.cn/links/</loc>
-    
-    <lastmod>2021-10-15</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xchens.cn/posts/b678101a/</loc>
     
     <lastmod>2021-10-15</lastmod>
@@ -135,6 +128,13 @@
   </url>
   
   <url>
+    <loc>https://xchens.cn/posts/208f0b83/</loc>
+    
+    <lastmod>2021-10-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xchens.cn/posts/75c80efa/</loc>
     
     <lastmod>2021-10-15</lastmod>
@@ -150,6 +150,13 @@
   
   <url>
     <loc>https://xchens.cn/404</loc>
+    
+    <lastmod>2021-10-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xchens.cn/links/</loc>
     
     <lastmod>2021-10-15</lastmod>
     
@@ -341,6 +348,20 @@
   
   <url>
     <loc>https://xchens.cn/tags/python3/</loc>
+    <lastmod>2021-10-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xchens.cn/tags/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2021-10-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xchens.cn/tags/%E9%98%85%E8%AF%BB/</loc>
     <lastmod>2021-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
