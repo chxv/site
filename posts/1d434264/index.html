@@ -28,24 +28,36 @@
 <p>接着我们就会遇到游戏联机史上最常见的问题：搜不到房间</p>
 <p>其实这个问题以前上学时玩饥荒联机就遇到过，只要关掉多余的网卡就行</p>
 <p>但是 wireguard，或者说几乎所有 vpn 软件组网时，都是使用了虚拟网卡</p>
+<p>而这个虚拟网卡又干扰了游戏间正常的互相寻找流程</p>
 <p>「关掉网卡，我连不上你；开启网卡，我找不到你」</p>
-<p>所以我们就思考呀，为啥呢？</p>
-<p>没错，就是「服务发现」</p>
-<p>任何局域网联机都依赖于自己的服务发现，这不同于 consul 这么复杂的方案</p>
+<p>当然我第一反应是把 wireguard 整到路由器上，这样就避免了本地网卡干扰了</p>
+<p>但可惜的是，这个方案过于麻烦，并不是特别满意</p>
+<p>所以我们就思考呀，为啥找不到房间呢？</p>
+<p>找不到房间其实就是两端的进程无法发现对方，也就是「服务发现」失败</p>
+<p>任何局域网联机都依赖于自己的服务发现，而且一般不会是 consul 这样复杂的方案</p>
 <p>一般软件都会通过广播包来实现自己的简化版服务发现</p>
-<p>那么就没啥好说的，打开 Wireshark 抓包，得到文明6发的一系列 udp 服务发现包</p>
+<p>那么八成就是这个广播包在虚拟网卡的干扰下，没有正确投递到对方机器咯</p>
+<p>就没啥好说的，打开 Wireshark 抓个包，得到文明6发的一系列 udp 服务发现包</p>
 <p>然后看地址是发到 255.255.255.255 的，查看路由表就一目了然了</p>
 <p>默认的 255.255.255.255 地址是路由到了我的物理网卡上</p>
 <p>所以对端的小伙伴时无法收到这个包的</p>
 <p>接下来有两个办法</p>
 <ol>
-<li>修改路由表，让这个地址的广播包走到 wireguard 虚拟网卡上</li>
-<li>抓包重发，把 udp 包内容修改目的地址后，直接发到小伙伴机器上</li>
+<li>「路线纠正」修改路由表，让这个地址的广播包走到 wireguard 虚拟网卡上</li>
+<li>「明确目标」抓包重发，把 udp 包内容修改目的地址后，直接发到小伙伴机器上</li>
 </ol>
 <p>感觉方案1有点不太好，因为改路由表还是不靠谱，容易触发未知 bug </p>
 <p>这里选择了方案2，简单写了个抓包重发工具</p>
 <p>果然成功了～～～</p>
 <p>知识改变游戏 ^-^</p>
+<hr>
+<h4 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h4><p>为啥把抓包重发后就能成功呢，因为开始服务发现包是 udp，是无连接的</p>
+<p>也就是说我们可以手动构造发包来源和目的地址</p>
+<p>那么，我们把来源端口设置为文明6进程使用的端口，目的地址修改为小伙伴机器的 ip</p>
+<p>这个 udp 包自然能被顺利投递过去</p>
+<p>而服务发现最重要的就是互相发现，当我们架上了这样一座桥后</p>
+<p>对端就知道了这里有个进程在寻找房间，对面就会主动发房间信息过来</p>
+<p>然后的然后，一切都刚刚好</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># Wirgurad Server Config</span><br><span class="line">[Interface]</span><br><span class="line">Address = 10.100.0.1/16</span><br><span class="line">SaveConfig = false</span><br><span class="line">PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o wg0 -j MASQUERADE</span><br><span class="line">PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o wg0 -j MASQUERADE</span><br><span class="line">ListenPort = 10000</span><br><span class="line">PrivateKey = Axxxxxxxxxxxxxxxxx</span><br><span class="line"></span><br><span class="line">[Peer]</span><br><span class="line">PublicKey = Bxxxxxxxxxxxxxxxx</span><br><span class="line">AllowedIPs = 10.100.0.1/24</span><br><span class="line"></span><br><span class="line">[Peer]</span><br><span class="line">PublicKey = Cxxxxxxxxxxxxxxxx</span><br><span class="line">AllowedIPs = 10.100.1.1/24</span><br></pre></td></tr></table></figure>
 
 
