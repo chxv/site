@@ -17,6 +17,10 @@ div#remark42{
   margin-left: 10px;
 }
 
+.utterances{
+  max-width: 960px;
+}
+
 p {
   line-height: 1.9em;
   font-weight: 400;
