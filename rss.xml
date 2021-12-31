@@ -9,8 +9,31 @@
     <atom:link href="https://xchens.cn/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>share tech</description>
-    <pubDate>Wed, 08 Dec 2021 06:39:29 GMT</pubDate>
+    <pubDate>Fri, 31 Dec 2021 16:08:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>2021 年度总结</title>
+      <link>https://xchens.cn/posts/2dac7475/</link>
+      <guid>https://xchens.cn/posts/2dac7475/</guid>
+      <pubDate>Fri, 31 Dec 2021 15:00:00 GMT</pubDate>
+      
+      <description>回头看看整个 2021 的自己</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h3><p>回头看看今年的工作变化还是非常大的，从开始一直在做内部安全业务，也一直感觉压力不大，</p><p>做内部业务的时候，几乎没有截止日期的说法，所有任务都是自己预先估计好然后慢慢做，</p><p>然后业务转型的时候，也确实有点不太适应，回头看工作变化是真觉得和跳槽没区别了，</p><p>后来做 2b 业务，度过了一开始的无所事事阶段，也是真的忙呀，下一份工作铁定不能选乙方了。</p><p>回顾起来，感觉甲方业务有点不接地气，有各种 sdk，各种研发中台，随便做个简单功能，</p><p>就是 redis、rds、mq 一套整起来，问题排查的时候就是 ms、trace、log 平台上面查，</p><p>螺丝钉本钉了。</p><p>2b 业务就不太一样，没有云环境，一切配置从头搞，trace、log 用的不爽就得自己从头撸，</p><p>微服务化更是影子都没有，一切都是非常传统的开发部署流程，甚至 ci/cd 都是别人新搞的。</p><p>感觉整个人都忙起来了</p><p>说不上来哪种工作模式更喜欢，感觉各有千秋，甲方业务能帮助熟悉了解前沿技术，有更多时间，</p><p>乙方业务则是可以深入细节，灵活开发，而且万一真赚钱了说不定就能多发点奖金 ～～</p><h3 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h3><p>今年一整年都比较平稳，也没发生什么特别不一样的事情</p><p>年中从临街朝北红木古舍搬到了现在的沿河面南简约雅居</p><p>优点是初早清净许多，缺点是晚早时总有巨大的装修噪音</p><p>明年再看看能不能找个早上更安静，过道更干净点的地方</p><p>今年主要干了三件大事：上班，通勤，打游戏。没啥意思</p><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>2022 OKR</p><ul><li>技术成长<ul><li>看完至少两本书，品类不限</li><li>输出 10 篇及以上技术分享</li></ul></li><li>个人发展<ul><li>找到一个长期目标</li><li>至少一次远距离骑行/步行</li></ul></li></ul>]]></content:encoded>
+      
+      
+      
+      <category domain="https://xchens.cn/tags/note/">note</category>
+      
+      <category domain="https://xchens.cn/tags/%E9%9A%8F%E7%AC%94/">随笔</category>
+      
+      
+      <comments>https://xchens.cn/posts/2dac7475/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>如何异地组网来玩局域网游戏 - 文明6</title>
@@ -450,29 +473,6 @@
       
       
       <comments>https://xchens.cn/posts/85ec9c9c/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>关于路由器的配置</title>
-      <link>https://xchens.cn/posts/74d8cbbb/</link>
-      <guid>https://xchens.cn/posts/74d8cbbb/</guid>
-      <pubDate>Mon, 29 Oct 2018 02:16:00 GMT</pubDate>
-      
-      <description>路由器配置方法</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="路由器的配置方法"><a href="#路由器的配置方法" class="headerlink" title="路由器的配置方法"></a>路由器的配置方法</h1><h2 id="了解路由器的基本信息"><a href="#了解路由器的基本信息" class="headerlink" title="了解路由器的基本信息"></a>了解路由器的基本信息</h2><p>路由器（英语：Router，又称路径器）是一种电讯网络设备，提供路由与转送两种重要机制，可以决定数据包从来源端到目的端所经过的路由路径（host到host之间的传输路径），这个过程称为路由；将路由器输入端的数据包移送至适当的路由器输出端（在路由器内部进行），这称为转送。路由工作在OSI模型的第三层——即网络层，例如网际协议（IP）。</p><h2 id="配置路由器"><a href="#配置路由器" class="headerlink" title="配置路由器"></a>配置路由器</h2><h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>路由的几种基本模式：</p><h4 id="AP（接入点）模式"><a href="#AP（接入点）模式" class="headerlink" title="AP（接入点）模式"></a>AP（接入点）模式</h4><p>AP(接入点)模式下，只需要把一根可以上网的网线插在路由器上，无需任何配置就可以上网了；但需要注意这时候路由器上的无线网络未加密，建议设置一个无线密码。<br>在此模式下，该设备相当于一台无线HUB，可实现无线之间、无线到有线、无线到广域网络的访问。最常见的能够提供无线客户端的接入，例如：无线网卡接入等。<br>具体设置步骤：该产品出厂默认是AP模式，用网线将设备与宽带接口连接，搜索该设备的无线信号进行连接，把无线IP地址改为自动获取即可（一般情况下，宽带路由器提供分配IP地址功能，DHCP）。<br>多数单纯性无线AP本身不具备路由功能，包括DNS、DHCP、Firewall在内的服务器功能都必须有独立的路由或是计算机来完成。目前大多数的无线AP都支持多用户（30-100台电脑）接入，数据加密，多速率发送等功能，在家庭、办公室内，一个无线AP便可实现所有电脑的无线接入。<br>AP即可以和无线网卡建立无线连接，也可以和有线网卡通过网线建立有线连接。<br>在这种模式下，无线1到13。选择中应该注意的是，如果周围环境中还有其他的无线网络，尽量不要与它使用相同的频率段。<br>同时注意开启无线功能，就是不要选中‘关闭无线功能’的这个选项即可。选中‘Access Point’选项，设置好SSID号即可。注意，通过无线方式与我们的无线AP建立连接的无线网卡上设置的SSID号必需与我们无线AP上设置的SSID号相同，否则无法接入网络。</p><p>适用场所：例如宾馆、酒店或者其它提供了一根网线上网的场所。</p><h4 id="Router-无线路由-模式"><a href="#Router-无线路由-模式" class="headerlink" title="Router(无线路由)模式"></a>Router(无线路由)模式</h4><p>在Router(无线路由)模式下，192.168.1.253路由器就相当于一台普通的无线宽带路由器；需要连接ADSL Modem（猫）或者光猫等设备来进行配置。</p><p>适用场所：用户自己办理了宽带业务情况下使用。</p><h4 id="Repeater（中继）模式"><a href="#Repeater（中继）模式" class="headerlink" title="Repeater（中继）模式"></a>Repeater（中继）模式</h4><p>Repeater（中继）模式下，192.168.1.253路由器会通过无线的方式与一台可以上网的无线路由器建立连接，用来放大可以上网的无线路由器上的无线信号；<br>注意：放大后的无线信号的名称和原来的无线路由器的无线信号名称一致。</p><p>适用场所：有一台可以上网的无线路由器，但是该无线路由器的无线信号覆盖有线，希望无线信号可以覆盖更广泛的范围时使用。</p><h4 id="Bridge（桥接）模式"><a href="#Bridge（桥接）模式" class="headerlink" title="Bridge（桥接）模式"></a>Bridge（桥接）模式</h4><p>Bridge（桥接）模式，192.168.1.253路由器会通过无线的方式与一台可以上网的无线路由器建立连接，用来放大可以上网的无线路由器上的无线信号；<br>注意：放大后的无线信号的名称和原来的无线路由器的无线信号名称不一样。</p><p>适用场所：有一台可以上网的无线路由器，但是该无线路由器的无线信号覆盖有线，希望无线信号可以覆盖更广泛的范围时使用。<br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/set_wlan_bridge.png" alt="set_wlan_bridge"></p><h4 id="Client（客户端）模式"><a href="#Client（客户端）模式" class="headerlink" title="Client（客户端）模式"></a>Client（客户端）模式</h4><p>Client（客户端）模式下，192.168.1.253路由器相当于一块无线网卡，用来接收其它无线路由器上的无线信号；电脑只能够通过网线连接到192.168.1.253路由器上使用。</p><p>适用场所：附近有无线信号，并且用户知道该无线信号密码，用户的台式电脑想连接该无线信号上网时使用。</p><h3 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h3><p>NAT（Network Address Translation， 网络地址转换）是1994年提出的。当在专用网内部的一些主机本来已经分配到了本地IP地址(即 仅在本专用网内使用的专用地址)，但现在又想和因特网上的主机通信(并不需要加密)时，可使用NAT方法。</p><p>这种方法需要在专用网连接到因特网的路由器上安装NAT软件。装有NAT软件的路由器叫做NAT路由器，它至少有一个有效的外部全球IP 地址。这样，所有使用本地地址的主机在和外界通信时，都要在NAT路由器上将其本地地址转换成全球IP地址，才能和因特网连接。</p><p>NAT的实现方式有三种，即静态转换Static Nat、动态转换Dynamic Nat 和端口多路复用OverLoad。</p><p>静态转换是指将内部网络的私有IP地址转换为公有IP地址，IP地址对是一对一的，是一成不变的，某个私有IP地址只转换为某个公有IP地 址。借助于静态转换，可以实现外部网络对内部网络中某些特定设备（如服务器）的访问。</p><p>动态转换是指将内部网络的私有IP地址转换为公用IP地址时，IP地址是不确定的，是随机的，所有被授权访问上Internet的私有IP地址可 随机转换为任何指定的合法IP地址。也就是说，只要指定哪些内部地址可以进行转换，以及用哪些合法地址作为外部地址时，就可以进行 动态转换。动态转换可以使用多个合法外部地址集。当ISP提供的合法IP地址略少于网络内部的计算机数量时。可以采用动态转换的方式。</p><p>端口多路复用（Port address Translation,PAT)是指改变外出数据包的源端口并进行端口转换，即端口地址转换（PAT，Port Address Translation).采用端口多路复用方式。内部网络的所有主机均可共享一个合法外部IP地址实现对Internet的访问，从而可以最大限度地节 约IP地址资源。同时，又可隐藏网络内部的所有主机，有效避免来自internet的攻击。因此，目前网络中应用最多的就是端口多路复用方式。</p><p>也可以手工的进行端口映射：<br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/set_port_map.png" alt="set_port_map"></p><h3 id="DDNS"><a href="#DDNS" class="headerlink" title="DDNS"></a>DDNS</h3><p>DDNS英文全称Dynamic Domain Name Server，中文含义是指动态域名服务。很多普通路由器或者智能路由器设置中，都可以找到DDNS（动态DNS）功能。</p><p>通俗的说，DDNS是将用户的动态IP地址映射到一个固定的域名解析服务上，用户每次连接网络的时候客户端程序就会通过信息传递把该主机的动态IP地址传送给位于服务商主机上的服务器程序，服务器程序负责提供DNS服务并实现动态域名解析。</p><p>如果觉得这样还不好理解的话，可以简单这样理解。目前路由器拨号上网获得的多半是动态IP,DDNS可以将路由器变化的外网IP和固定的域名绑定，从而用户可以在外网通过该固定域名进行访问路由器。</p><h4 id="DDNS有什么用？"><a href="#DDNS有什么用？" class="headerlink" title="DDNS有什么用？"></a>DDNS有什么用？</h4><p>1、目前ISP网络运营商大多提供动态IP（如拨号上网），我们若想在互联网上以自己的网域公布，DDNS提供了解决方案，它可以自动更新用户每次变化的浮动IP，然后将其与网域相对应，这样其他上网用户就可以通过域名访问您的路由器。</p><p>2、DDNS还可以让我们在自己的或家里架设WEB\MAIL\FTP等服务器，而不用花钱去付虚拟主机租金，也就是说，借助路由器DDNS绑定域名，可以将我们电脑作为服务器功能来使用，通过域名，可以让全球其他联网用户，访问我们指定的文件或者网页程序。</p><p>3、主机是自己的，空间可根据自己的硬盘需求来扩充，维护也比较方便。有了域名与空间，借助DDNS绑定域名就可以架设网站，FTP 服务器、EMAIL服务器都不成问题。</p><p>4、如果您有对VPN的需求，有了DDNS就可以用普通上网方式方便地建立Tunnel。透过网域的方式连结，实现远端管理、远端存取、远端打印等功能。</p><h4 id="DDNS设置方法"><a href="#DDNS设置方法" class="headerlink" title="DDNS设置方法"></a>DDNS设置方法</h4><p><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/set_DDNS.png" alt="set_DDNS"><br>如图所示，需要配置好提供DDNS的服务商及其账户密码,然后检测连接状态，一般在服务提供商的文档中会详细介绍这一点。  </p><h3 id="静态ip"><a href="#静态ip" class="headerlink" title="静态ip"></a>静态ip</h3><p>静态IP 地址（又称固定IP地址）是长期分配给一台计算机或网络设备使用的IP 地址。<br>设置方法：在路由器中将打算设置的IP地址与目标主机绑定。<br>tips: <a href="#%E6%9F%A5%E7%9C%8B%E4%B8%BB%E6%9C%BAmac%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80">查看主机mac(物理地址)的方法</a><br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/set_static_ip.png" alt="set_static_ip">  </p><h3 id="DMZ"><a href="#DMZ" class="headerlink" title="DMZ"></a>DMZ</h3><p>DMZ是全称叫做Demilitarized Zone，又叫做隔离区，也就是隔离内网和外网的一道屏障。因为现在网络病毒和攻击太猖獗了，于是需要组件一个相对于外网的内网系统。外网是非安全的可能受到攻击，内网则是相对安全一些，因为有防火墙的保护。但是问题又来了，有了防火墙之后，安全访问机制会让内网里面的机器能够正常访问外部网络，外部的设备却没法访问内网里面的服务器了。这也就是所谓的单向通信机制。  </p><p>配置在DMZ中的主机完全无视无线路由器防火墙的规则，可以直接与互联网上的主机进行双向通讯，用另一种说法就是DMZ主机就是一个开放所有端口的虚拟服务器。  </p><p>启用DMZ后就可以将指定主机暴露在公网上了。<br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/set_DMZ.png" alt="set_DMZ">  </p><h3 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h3><p>DHCP (Dynamic Host Configuration Protocol，动态主机配置协议)服务能自动为网络客户机的TCP/IP分配IP地址、子网掩码、默认网关以及DNS服务器和WINS服务器的IP地址。<br>它能使网络管理员不用前往现场就能对每台计算机上的TCP/IP参数进行配置，一切设置的修改直接在服务器上即可完成。 DHCP 避免了因手工设置IP地址及子网掩码所产生的错误，同时也避免了把一个IP地址分配给多台计算机所造成的地址冲突，而客户机也只需将TCP/IP配置全设置为自动获取即可上网。  DHCP服务降低了管理IP地址设置的负担，使用DHCP 服务器大大缩短了配置或重新配置网络中工作站所花费的时间，达到了最高效地利用有限的IP地址的目的。 由于包含IP地址的相关TCP/IP配置参数是DHCP服务器“临时发放”给客户端使用的，所以当客户机断开与服务器的连接后，旧的IP地址将被释放以便重用。</p><hr><h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><h4 id="查看主机mac-物理地址"><a href="#查看主机mac-物理地址" class="headerlink" title="查看主机mac(物理地址)"></a>查看主机mac(物理地址)</h4><p>win下打开cmd终端，输入 <code>ipconfig /all</code><br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/get_pc_mac.png" alt="get_pc_mac">  </p>]]></content:encoded>
-      
-      
-      
-      <category domain="https://xchens.cn/tags/%E6%95%99%E7%A8%8B/">教程</category>
-      
-      <category domain="https://xchens.cn/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</category>
-      
-      
-      <comments>https://xchens.cn/posts/74d8cbbb/#disqus_thread</comments>
       
     </item>
     
