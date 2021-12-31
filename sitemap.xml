@@ -156,6 +156,13 @@
   </url>
   
   <url>
+    <loc>https://xchens.cn/posts/65da21a9/</loc>
+    
+    <lastmod>2021-12-31</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xchens.cn/posts/2dac7475/</loc>
     
     <lastmod>2021-12-31</lastmod>
@@ -411,6 +418,27 @@
   
   <url>
     <loc>https://xchens.cn/tags/wireguard/</loc>
+    <lastmod>2021-12-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xchens.cn/tags/nginx/</loc>
+    <lastmod>2021-12-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xchens.cn/tags/lua/</loc>
+    <lastmod>2021-12-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xchens.cn/tags/service/</loc>
     <lastmod>2021-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
