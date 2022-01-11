@@ -2,7 +2,7 @@ function homepage() {
   const homepageCookie = "toHome";
   if (window.location.pathname === '/') {
     if (getCookie(homepageCookie) === '') {
-      setCookie(homepageCookie, '1', 1);
+      setCookie(homepageCookie, '1', 7);
       window.location.href = '/home';
     }
   }
