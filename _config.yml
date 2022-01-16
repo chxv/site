@@ -10,7 +10,7 @@ keywords:
     - go
     - cpp
     - algorithm
-author: cshsonice
+author: chxv
 language: en-us
 timezone: 'Asia/Shanghai'
 
@@ -106,7 +106,7 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: anatole
 
-github: cshsonice
+github: chxv
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
