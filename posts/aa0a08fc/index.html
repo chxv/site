@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>疑难杂症 之 服务端上传限速 · xchens</title><meta name="description" content="一个平凡的下午，突然被拉去 oncall
+服务端带宽打满了！兜不住了！业务马上要挂了！
+于是紧急开始排查，从 nginx 日志里很快定位到是我们的文件上传接口在刷流量
+具体原因这里不展开，现象是合法客户端会不断调用接口上传大文件
+这里也不讨论客户端解决方案，因为客户端就算修了也要打包发版推送
+当然也"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/table.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><a href="/"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><span>xchens</span></h3><div class="description"><p>share tech</p></div></a></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="https://github.com/chxv"><span>follow me on  </span><i class="fa fa-github"></i></a></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">home</a></li><li><a href="/about">about</a></li><li><a href="/archives">archive</a></li><li><a href="/links">links</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><a href="/home" title="home"><img src="/images/avatar.jpg"></a></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>疑难杂症 之 服务端上传限速</a></h3></div><div class="post-content"><p>一个平凡的下午，突然被拉去 oncall</p>
+<p>服务端带宽打满了！兜不住了！业务马上要挂了！</p>
+<p>于是紧急开始排查，从 nginx 日志里很快定位到是我们的文件上传接口在刷流量</p>
+<p>具体原因这里不展开，现象是合法客户端会不断调用接口上传大文件</p>
+<p>这里也不讨论客户端解决方案，因为客户端就算修了也要打包发版推送</p>
+<p>当然也不可能像对抗 DDOS 那样用防火墙封 ip，因为服务端只看到了公网 ip，而这很可能是整个工区的出口 ip</p>
+<p>而且目前只是流量很费钱，要说把核心业务停下来降温是想都不敢想的 ～</p>
+<p>作为服务端，需要的是一个能立即 <strong>解决故障</strong> 或 <strong>缩小影响面</strong> 的方案</p>
+<p>首先第一反应是阻止重试，尝试构造一些响应来让客户端认为请求成功，别再发包了</p>
+<p>可惜不行，客户端 bug 成因比较复杂，尝试半天的结论就是这样做不了</p>
+<p>然后就努力尝试中断请求，在客户端发完包之前就阻断，减少上行流量</p>
+<p>可惜找了半天也没发现 nginx 有什么好用的配置</p>
+<p>而我们短期也不可能给 nginx 写出来一个网络扩展去影响 4 层协议</p>
+<hr>
+<p>然后作为一个无法解决的问题开始拉更多人讨论 ～</p>
+<p>经过彻夜奋战，得到一个优雅丝滑的方案</p>
+<blockquote>
+<p>TCP 拥塞控制：只要「发送方」没有在规定时间内接收到 ACK 应答报文，也就是发生了超时重传，就会认为网络出现了拥塞</p>
+</blockquote>
+<p>因此降低 server 端的处理速度自然可以反作用到网络链路上</p>
+<p>当 server 端包处理足够慢，自然就实现了由服务端控制的流量限速</p>
+<p>最终的解决方案是 access_by_lua 里注入 <code>ngx.sleep(10)</code></p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">update at 2023-03-04</span><i class="fa fa-tag"></i><a class="tag" href="/tags/网络/" title="网络">网络 </a><a class="tag" href="/tags/network/" title="network">network </a><a class="tag" href="/tags/server/" title="server">server </a></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://xchens.cn//posts/aa0a08fc/,xchens,疑难杂症 之 服务端上传限速,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/posts/65da21a9/" title="浅谈公网服务隐身设计">next post</a></li></ul></div><div id="remark42"></div><script src="https://utteranc.es/client.js" repo="chxv/comments-store" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script async src="/js/customize.js"></script></body></html>

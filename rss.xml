@@ -9,29 +9,31 @@
     <atom:link href="https://xchens.cn/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>share tech</description>
-    <pubDate>Wed, 08 Feb 2023 16:47:05 GMT</pubDate>
+    <pubDate>Sat, 04 Mar 2023 14:45:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>2022 年度总结</title>
-      <link>https://xchens.cn/posts/51cd51ae/</link>
-      <guid>https://xchens.cn/posts/51cd51ae/</guid>
-      <pubDate>Wed, 08 Feb 2023 16:00:00 GMT</pubDate>
+      <title>疑难杂症 之 服务端上传限速</title>
+      <link>https://xchens.cn/posts/aa0a08fc/</link>
+      <guid>https://xchens.cn/posts/aa0a08fc/</guid>
+      <pubDate>Sat, 04 Mar 2023 13:30:00 GMT</pubDate>
       
-      <description>回头看看整个 2022 的自己</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="OKR-回顾"><a href="#OKR-回顾" class="headerlink" title="OKR 回顾"></a>OKR 回顾</h3><p>没有看完两本书，但是追完本了一本小说</p><p>没有输出10篇技术分享，但还好有一个</p><p>没有找到啥长期目标，但是，也没短期目标</p><p>完成过一次远距离骑行（环西湖）</p><h3 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h3><p>全年变动不大，一直处在做需求、修bug的状态</p><p>整体感觉节奏越来越固定了，离毕业前的职业发展设想越来越远，现在做的基本和安全不沾边了</p><p>基本定型为纯粹的服务端研发了，目前只能说感觉不差吧，可惜上学的时候学的东西没咋用上</p><h3 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h3><p>平平无奇呀 ～～</p><p>感觉工作有点过载，现在最主要的放松方式就是出去吃吃喝喝了</p><p>吃喝真是解压神器，现在玩游戏都没啥动力，但是下馆子还是十分乐意</p><p>感觉研发干久了有个很大问题，脱离群众。</p><p>现在基本只能靠刷抖音了解一下年轻人都·在玩啥，像是中年大爷，打工机器 QaQ</p><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>2023 OKR</p><ul><li>技术成长<ul><li>看完至少一本书，品类不限</li><li>输出 3 篇及以上技术分享</li></ul></li><li>个人发展<ul><li>至少一次远距离骑行&#x2F;步行</li><li>学会游泳</li></ul></li></ul>]]></content:encoded>
+      <description>如何通过服务端配置反作用到客户端网络</description>
       
       
       
-      <category domain="https://xchens.cn/tags/note/">note</category>
-      
-      <category domain="https://xchens.cn/tags/%E9%9A%8F%E7%AC%94/">随笔</category>
+      <content:encoded><![CDATA[<p>一个平凡的下午，突然被拉去 oncall</p><p>服务端带宽打满了！兜不住了！业务马上要挂了！</p><p>于是紧急开始排查，从 nginx 日志里很快定位到是我们的文件上传接口在刷流量</p><p>具体原因这里不展开，现象是合法客户端会不断调用接口上传大文件</p><p>这里也不讨论客户端解决方案，因为客户端就算修了也要打包发版推送</p><p>当然也不可能像对抗 DDOS 那样用防火墙封 ip，因为服务端只看到了公网 ip，而这很可能是整个工区的出口 ip</p><p>而且目前只是流量很费钱，要说把核心业务停下来降温是想都不敢想的 ～</p><p>作为服务端，需要的是一个能立即 <strong>解决故障</strong> 或 <strong>缩小影响面</strong> 的方案</p><p>首先第一反应是阻止重试，尝试构造一些响应来让客户端认为请求成功，别再发包了</p><p>可惜不行，客户端 bug 成因比较复杂，尝试半天的结论就是这样做不了</p><p>然后就努力尝试中断请求，在客户端发完包之前就阻断，减少上行流量</p><p>可惜找了半天也没发现 nginx 有什么好用的配置</p><p>而我们短期也不可能给 nginx 写出来一个网络扩展去影响 4 层协议</p><hr><p>然后作为一个无法解决的问题开始拉更多人讨论 ～</p><p>经过彻夜奋战，得到一个优雅丝滑的方案</p><blockquote><p>TCP 拥塞控制：只要「发送方」没有在规定时间内接收到 ACK 应答报文，也就是发生了超时重传，就会认为网络出现了拥塞</p></blockquote><p>因此降低 server 端的处理速度自然可以反作用到网络链路上</p><p>当 server 端包处理足够慢，自然就实现了由服务端控制的流量限速</p><p>最终的解决方案是 access_by_lua 里注入 <code>ngx.sleep(10)</code></p>]]></content:encoded>
       
       
-      <comments>https://xchens.cn/posts/51cd51ae/#disqus_thread</comments>
+      
+      <category domain="https://xchens.cn/tags/%E7%BD%91%E7%BB%9C/">网络</category>
+      
+      <category domain="https://xchens.cn/tags/network/">network</category>
+      
+      <category domain="https://xchens.cn/tags/server/">server</category>
+      
+      
+      <comments>https://xchens.cn/posts/aa0a08fc/#disqus_thread</comments>
       
     </item>
     
@@ -57,29 +59,6 @@
       
       
       <comments>https://xchens.cn/posts/65da21a9/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>2021 年度总结</title>
-      <link>https://xchens.cn/posts/2dac7475/</link>
-      <guid>https://xchens.cn/posts/2dac7475/</guid>
-      <pubDate>Fri, 31 Dec 2021 15:00:00 GMT</pubDate>
-      
-      <description>回头看看整个 2021 的自己</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h3><p>回头看看今年的工作变化还是非常大的，从开始一直在做内部安全业务，也一直感觉压力不大，</p><p>做内部业务的时候，几乎没有截止日期的说法，所有任务都是自己预先估计好然后慢慢做，</p><p>然后业务转型的时候，也确实有点不太适应，回头看工作变化是真觉得和跳槽没区别了，</p><p>后来做 2b 业务，度过了一开始的无所事事阶段，也是真的忙呀，下一份工作铁定不能选乙方了。</p><p>回顾起来，感觉甲方业务有点不接地气，有各种 sdk，各种研发中台，随便做个简单功能，</p><p>就是 redis、rds、mq 一套整起来，问题排查的时候就是 ms、trace、log 平台上面查，</p><p>螺丝钉本钉了。</p><p>2b 业务就不太一样，没有云环境，一切配置从头搞，trace、log 用的不爽就得自己从头撸，</p><p>微服务化更是影子都没有，一切都是非常传统的开发部署流程，甚至 ci&#x2F;cd 都是别人新搞的。</p><p>感觉整个人都忙起来了</p><p>说不上来哪种工作模式更喜欢，感觉各有千秋，甲方业务能帮助熟悉了解前沿技术，有更多时间，</p><p>乙方业务则是可以深入细节，灵活开发，而且万一真赚钱了说不定就能多发点奖金 ～～</p><h3 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h3><p>今年一整年都比较平稳，也没发生什么特别不一样的事情</p><p>年中从临街朝北红木古舍搬到了现在的沿河面南简约雅居</p><p>优点是初早清净许多，缺点是晚早时总有巨大的装修噪音</p><p>明年再看看能不能找个早上更安静，过道更干净点的地方</p><p>今年主要干了三件大事：上班，通勤，打游戏。没啥意思</p><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>2022 OKR</p><ul><li>技术成长<ul><li>看完至少两本书，品类不限</li><li>输出 10 篇及以上技术分享</li></ul></li><li>个人发展<ul><li>找到一个长期目标</li><li>至少一次远距离骑行&#x2F;步行</li></ul></li></ul>]]></content:encoded>
-      
-      
-      
-      <category domain="https://xchens.cn/tags/note/">note</category>
-      
-      <category domain="https://xchens.cn/tags/%E9%9A%8F%E7%AC%94/">随笔</category>
-      
-      
-      <comments>https://xchens.cn/posts/2dac7475/#disqus_thread</comments>
       
     </item>
     
@@ -475,6 +454,27 @@
       
       
       <comments>https://xchens.cn/posts/8e260842/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>求解递归式的基本方法</title>
+      <link>https://xchens.cn/posts/2d3132fd/</link>
+      <guid>https://xchens.cn/posts/2d3132fd/</guid>
+      <pubDate>Wed, 07 Nov 2018 15:06:00 GMT</pubDate>
+      
+      <description>递归式的一般解法</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="递归式"><a href="#递归式" class="headerlink" title="递归式"></a>递归式</h1><p>一个递归式就是一个等式或不等式，<br>它通过更小的输入上的函数值来描述一个函数。<br>例如:<br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dts_exp.png" alt="递归式样例"></p><h2 id="一、代入法"><a href="#一、代入法" class="headerlink" title="一、代入法"></a>一、代入法</h2><ol><li><p>猜测解的形式。  </p></li><li><p>用数学归纳法求出解中的常数，并证明解是正确的。</p></li></ol><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><h4 id="一般解法"><a href="#一般解法" class="headerlink" title="一般解法"></a>一般解法</h4><p>求解: T(n) &#x3D; T(n-1) + n  </p><pre><code>假设其解为O(n^2)，即 T(n) = O(n^2)代入法要求: 证明选择常数 c&gt;0 ，可得 T(n) ≤ c*n^2    假设对于 m&lt;n ，总有 T(m) ≤ c*m^2    即 T(n-1) ≤ c*(n-1)^2    那么    T(n) ≤ c*(n-1)^2 + n        ≤ c*n^2 - c*2n + c + n        ≤ c*n^2 - (c*2n - c -n)        ≤ c*n^2 - ((n-1)c + (c-1)n)    由于 n&gt;1 &amp;&amp; c&gt;0 则 ((n-1)c + (c-1)n) &gt; 0    故 T(n) ≤ c*n^2    得 T(n) = O(n^2)</code></pre><h4 id="变形的换元解法"><a href="#变形的换元解法" class="headerlink" title="变形的换元解法"></a>变形的换元解法</h4><p>求解： <img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dts_exp2.png" alt="递归式换元题"></p><pre><code>这里可以假设n开方后是整数。令 m=lgn得到    T(2^m) = 2T(2^(m/2)) + m使 S(m) = T(2^m), 则    S(m) = 2S(m/2) + m这里的递归式S(m)就可以使用与上面相同的解法。    猜测 S(m) = O(mlgm)， 即存在常数c&gt;0,可得 S(m) ≤ cmlgm    假设c&gt;0时对于任意的 a&lt;m 都有S(a) ≤ calga    则 S(m/2) ≤ c(m/2)lg(m/2)    S(m) ≤ 2c(m/2)lg(m/2) + m         ≤ cmlgm - m(c-1)         ≤ cmlgm    所以 S(m) = O(mlgm)T(n)=T(2^m)=S(m)=O(mlgm)=O(lgn*lglgn)</code></pre><h2 id="二、递归树法"><a href="#二、递归树法" class="headerlink" title="二、递归树法"></a>二、递归树法</h2><p>虽然可以用代入法简洁的证明一个解是递归式的正确解，但想出一个好的猜测可能并不容易。画出递归树是设计好的猜测的一种简单而直接的方法。</p><p>在递归树中，每个结点代表一个单一子问题的代价，子问题对应某次递归函数调用。我们将树中每层中的代价求和，得到每层代价。再将所有层中的代价求和，得到递归调用总代价。</p><h3 id="例"><a href="#例" class="headerlink" title="例"></a>例</h3><p>我们以<img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dts_exp3.png" alt="递归式3">为例。<br>如下图显示了构造递归树的必要步骤，为方便起见，假定n是4的幂。</p><p><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dgs_abc.png" alt="abc"><br><img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/dgs_d.png" alt="d">  </p><p>递归树法存在一定误差，需要注意</p><h2 id="三、主方法"><a href="#三、主方法" class="headerlink" title="三、主方法"></a>三、主方法</h2><p>主方法为如下形式的递归式提供了特别的解法<br>    ** T(n) &#x3D; aT(n&#x2F;b) + f(n) **<br>其中a,b是常数， a≥1, b&gt;1,f(n)是渐近正函数</p><p>主方法依赖这些<a href="https://zh.wikipedia.org/wiki/%E4%B8%BB%E5%AE%9A%E7%90%86">定理</a></p><h3 id="主方法概括"><a href="#主方法概括" class="headerlink" title="主方法概括"></a>主方法概括</h3><p>比较 <img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/nlogba.png" alt="nlogba"> 和 f(n)，如果f(n)的复杂度较大，T(n)&#x3D;O(f(n)),如果f(n)的复杂度较小，则T(n)&#x3D;O(<img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/nlogba.png" alt="nlogba">)。<br>而若二者相等，则T(n)&#x3D;O(<img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/nlogba.png" alt="nlogba"> * lgn)</p><h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><blockquote><p>T(n) &#x3D; 7T(n&#x2F;2) + O(n^2)</p></blockquote><p>这里有a&#x3D;7,b&#x3D;2,f(n)&#x3D;n^2。<br>因此 <img src="https://xchens-1254410906.cos.ap-shanghai.myqcloud.com/assets/images/nlogba.png" alt="nlogba"> &gt; f(n)<br>则 T(n) &#x3D; O(n ^ (lg 7))</p><h2 id="the-end"><a href="#the-end" class="headerlink" title="the end"></a>the end</h2><p>欢迎友善交流。</p>]]></content:encoded>
+      
+      
+      
+      <category domain="https://xchens.cn/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      
+      <comments>https://xchens.cn/posts/2d3132fd/#disqus_thread</comments>
       
     </item>
     
