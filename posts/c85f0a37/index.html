@@ -9,7 +9,7 @@ Given an array nums of n integers and an integer target, find three integers in 
 <p>Given an array <em><strong>nums</strong></em> of n integers and an integer <em><strong>target</strong></em>, find three integers in <em><strong>nums</strong></em> such that the sum is closest to <em><strong>target</strong></em>. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
 <p><strong>Example:</strong></p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Given array nums = [-1, 2, 1, -4], and target = 1.  </span><br><span class="line">The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).</span><br></pre></td></tr></table></figure>
-<p>&amp;nbsp;  </p>
+<p>&nbsp;  </p>
 </blockquote>
 <h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>这道题和 <a target="_blank" rel="noopener" href="https://leetcode.com/problems/3sum/description/">3 Sum</a> 十分相似，相当于它的加强版。可以二者相互对照着分析。<br><a target="_blank" rel="noopener" href="https://leetcode.com/problems/3sum/description/">3 Sum</a> 这道题要求在序列中找到三个数使其和 <em><strong>sum</strong></em> 等于0，而这里则要求在序列中找到三个数使其和 <em><strong>sum</strong></em> 尽可能接近指定值 <em><strong>target</strong></em> 。</p>
 <h4 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h4><p>暴力的遍历以及输出是较为直观的方法，在对性能要求不高的时候（比如自己写个功能性函数的时候）是最为开心的写法了。毕竟程序员还是要对自己好一点。太费脑子伤头发。  </p>
